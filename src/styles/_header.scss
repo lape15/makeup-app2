@@ -1,0 +1,32 @@
+nav {
+  display: flex;
+  //   border: 2px solid red;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  padding: 10px 25px;
+  ul.left {
+    li {
+      list-style: none;
+      font-family: "Amatic SC", cursive;
+      letter-spacing: 1px;
+      font-size: 3rem;
+      font-weight: 900;
+      flex-basis: 45%;
+    }
+  }
+  ul.right {
+    // border: 2px solid green;
+    flex-basis: 45%;
+    display: flex;
+    justify-content: flex-end;
+    li {
+      list-style: none;
+      .profile-img {
+        border: 2px solid black;
+        width: 60px;
+        height: 50px;
+        border-radius: 100%;
+      }
+    }
+  }
+}

@@ -1,0 +1,59 @@
+$padding: 3%;
+$colors: (
+  grey-blue: hsl(227, 12%, 61%),
+  light-grey: hsl(0, 0%, 98%),
+  white: #ffffff,
+  list-blue: hsl(228, 45%, 44%),
+  dark-blue: hsl(233, 12%, 13%),
+  pale-red: hsl(13, 100%, 96%),
+  burnt-orange: lighten(#f24405, 10%),
+  dark: hsl(228, 39%, 23%),
+  black: black,
+  light-yellow: lighten(#ff9b21, 40%),
+  yellowe: #ff9b21,
+  pink: #ffcdea,
+  dark-pink: #f978b9,
+);
+
+@function color($color-name) {
+  @return map-get($colors, $color-name);
+}
+.sign-in {
+  display: flex;
+  flex-flow: row wrap;
+
+  .lady-img {
+    // border: 3px solid green;
+    flex-basis: 45%;
+    .lady {
+      height: 430px;
+      width: 750px;
+      //   outline: groove;
+    }
+  }
+  .btn-group {
+    flex-basis: 35%;
+    // border: 2px solid red;
+    display: inline;
+    padding: 10px 5px 5px 20px;
+  }
+  .btn {
+    background-color: color(pink);
+    padding: 15px 10px;
+    outline: 0;
+    border: none;
+    margin-top: 14rem;
+    margin-left: 38px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 5s ease-in-out;
+  }
+  .btn:hover {
+    background-color: color(dark-pink);
+  }
+  .link {
+    text-decoration: none;
+    color: #000000;
+  }
+}
