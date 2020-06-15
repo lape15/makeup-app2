@@ -1,8 +1,19 @@
+$mobile: 300px;
+// (min-width: 300px) and (max-width: 800px)
+$ipad: 768px;
+@mixin mobile {
+  @media (min-width: #{$mobile})  and (max-width : $ipad) {
+    @content;
+  }
+}
+@mixin ipad {
+  @media (min-width: #{$ipad}) {
+    @content;
+  }
+}
+
 .home {
   height: 80vh;
-  // border: 2px solid red;
-  // display: flex;
-  // flex-flow: row wrap;
 }
 
 .filter {
@@ -10,9 +21,16 @@
   width: calc(100% - 50px);
   margin: 0 auto;
   position: relative;
-  height: 100px;
+  height: 50px;
   padding: 10px 15px;
+  display: block;
   cursor: pointer;
+  @include mobile() {
+    height: 50px;
+  }
+  .extra {
+    height: 150px;
+  }
   .filter-btn {
     border: 2px solid blue;
     width: max-content;
@@ -26,10 +44,80 @@
     // left: 1050px;
     letter-spacing: 1px;
   }
+  .hide {
+    display: none;
+  }
   .filter-item {
     border: 2px solid green;
     margin-top: 60px;
+    max-width: 80%;
+    margin-left: 55px;
     height: auto;
-    // display: none;
+    display: block;
+    form {
+      outline: 2px solid purple;
+      // margin: 25px auto;
+      padding: 5px 122px 2px;
+      width: 65%;
+      // display: block;
+      @include mobile() {
+        padding: 2px 15px;
+        width: 75%;
+      }
+      label {
+        font-size: 1rem;
+        font-weight: 600;
+        display: inline;
+        padding: 2px;
+        letter-spacing: 1px;
+        font-family: "Roboto Condensed", sans-serif;
+        margin-left: 25px;
+        @include mobile() {
+          margin-top: -255px;
+          font-size: 0.8rem;
+          margin-left: 5px;
+          border: 2px solid red;
+        }
+      }
+
+      input[type="text"] {
+        display: inline-block;
+        margin: 5px;
+        // margin-left: 10px;
+        text-align: center;
+        height: 20px;
+        padding: 2px;
+        letter-spacing: 1px;
+        font-family: "Roboto Condensed", sans-serif;
+        font-size: 1rem;
+        @include mobile() {
+          margin-top: 10px;
+        }
+      }
+      .fas {
+        margin-left: 10px;
+        padding: 4px 14px;
+        border-radius: 50%;
+        letter-spacing: 1px;
+        background-color: #e5c1cd;
+        outline: 0;
+        color: #b6b4c2;
+        border: 1px solid #c9bbc8;
+        font-size: 1rem;
+        cursor: pointer;
+      }
+    }
+    .reset-filter {
+      border: 2px solid pink;
+      position: absolute;
+      right: 20px;
+      bottom: 70px;
+      @include mobile() {
+        right: 0;
+        bottom: 0;
+        left: 10px;
+        width: 50px;
+      }
+    }
   }
 }

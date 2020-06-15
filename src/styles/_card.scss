@@ -1,3 +1,17 @@
+$mobile: 300px;
+// (min-width: 300px) and (max-width: 800px)
+$ipad: 768px;
+@mixin mobile {
+  @media (min-width: #{$mobile})  and (max-width : $ipad) {
+    @content;
+  }
+}
+@mixin ipad {
+  @media (min-width: #{$ipad}) {
+    @content;
+  }
+}
+
 .card {
   //   border: 2px solid blue;
   display: flex;
