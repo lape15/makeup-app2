@@ -4,3 +4,32 @@
   // display: flex;
   // flex-flow: row wrap;
 }
+
+.filter {
+  border: 2px solid red;
+  width: calc(100% - 50px);
+  margin: 0 auto;
+  position: relative;
+  height: 100px;
+  padding: 10px 15px;
+  cursor: pointer;
+  .filter-btn {
+    border: 2px solid blue;
+    width: max-content;
+    padding: 5px;
+    // text-align: center;
+    vertical-align: middle;
+    float: right;
+    margin-top: 7px;
+    // position: absolute;
+    // top: 7px;
+    // left: 1050px;
+    letter-spacing: 1px;
+  }
+  .filter-item {
+    border: 2px solid green;
+    margin-top: 60px;
+    height: auto;
+    // display: none;
+  }
+}

@@ -6,7 +6,7 @@ const Dashboard = () => {
   return (
     <div>
       <Switch>
-        <Route exact path="/dashboard/products" component={Homepage} />
+        {/*<Route exact path="/dashboard/products" component={Homepage} /> */}
       </Switch>
     </div>
   );
