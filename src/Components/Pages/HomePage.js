@@ -45,6 +45,7 @@ const Homepage = () => {
         );
         if (brandData.data) {
           setProducts(brandData.data);
+          console.log(products);
         }
         // console.log(Array.isArray(brandData.data));
       } catch (error) {
@@ -70,7 +71,7 @@ const Homepage = () => {
   };
 
   const resetFilter = () => {
-    console.log(products);
+    // console.log(products);
     // setProductType(products);
   };
   return (
@@ -86,7 +87,9 @@ const Homepage = () => {
             <input type="text" value={brand} onChange={handleChange} />
             <label>Product Type</label>
             <input type="text" value={productType} onChange={onTypeChange} />
-            <i class="fas fa-search"></i>
+            <button>
+              <i class="fas fa-search"></i>
+            </button>
           </form>
           <div className="reset-filter">
             <button className="btn" onClick={resetFilter}>

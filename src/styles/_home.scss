@@ -1,8 +1,15 @@
 $mobile: 300px;
 // (min-width: 300px) and (max-width: 800px)
 $ipad: 768px;
+$bigIpad: 1056px;
 @mixin mobile {
   @media (min-width: #{$mobile})  and (max-width : $ipad) {
+    @content;
+  }
+}
+
+@mixin big-ipad {
+  @media (min-width: #{$bigIpad}) {
     @content;
   }
 }
@@ -17,7 +24,7 @@ $ipad: 768px;
 }
 
 .filter {
-  border: 2px solid red;
+  // border: 2px solid red;
   width: calc(100% - 50px);
   margin: 0 auto;
   position: relative;
@@ -32,37 +39,56 @@ $ipad: 768px;
     height: 150px;
   }
   .filter-btn {
-    border: 2px solid blue;
+    border: 1px solid #e5c1cd;
     width: max-content;
     padding: 5px;
-    // text-align: center;
+
     vertical-align: middle;
     float: right;
     margin-top: 7px;
-    // position: absolute;
-    // top: 7px;
-    // left: 1050px;
+
     letter-spacing: 1px;
+    color: #e5c1cd;
+    transition: all 0.5s ease-in-out;
+  }
+  .filter-btn:hover {
+    border-radius: 100%;
+    color: black !important;
   }
   .hide {
     display: none;
   }
   .filter-item {
-    border: 2px solid green;
+    // border: 2px solid green;
     margin-top: 60px;
     max-width: 80%;
     margin-left: 55px;
     height: auto;
     display: block;
+    transform-origin: center;
+    z-index: 99;
+    @include mobile() {
+      margin-top: 10px;
+      // margin-left: 10px;
+    }
     form {
-      outline: 2px solid purple;
+      // outline: 2px solid purple;
       // margin: 25px auto;
       padding: 5px 122px 2px;
       width: 65%;
+      margin-left: 65px;
       // display: block;
       @include mobile() {
         padding: 2px 15px;
         width: 75%;
+        display: block !important;
+        border: 2px solid red;
+        z-index: 99;
+        // position: absolute;
+        margin: 100px auto;
+      }
+      @include big-ipad() {
+        // margin: 20px;
       }
       label {
         font-size: 1rem;
@@ -73,9 +99,10 @@ $ipad: 768px;
         font-family: "Roboto Condensed", sans-serif;
         margin-left: 25px;
         @include mobile() {
-          margin-top: -255px;
+          display: block !important;
+          margin-top: 5px;
           font-size: 0.8rem;
-          margin-left: 5px;
+          // margin-left: 5px;
           border: 2px solid red;
         }
       }
@@ -92,6 +119,7 @@ $ipad: 768px;
         font-size: 1rem;
         @include mobile() {
           margin-top: 10px;
+          width: 60%;
         }
       }
       .fas {
@@ -101,22 +129,31 @@ $ipad: 768px;
         letter-spacing: 1px;
         background-color: #e5c1cd;
         outline: 0;
-        color: #b6b4c2;
+        color: #000000;
         border: 1px solid #c9bbc8;
         font-size: 1rem;
         cursor: pointer;
+        transition: 0.05ms all ease-in-out;
+        @include mobile() {
+        }
+      }
+      .fas:hover {
+        transform: scale(1.1);
+        transform-origin: center;
       }
     }
     .reset-filter {
       border: 2px solid pink;
       position: absolute;
-      right: 20px;
-      bottom: 70px;
+      right: 250px;
+      bottom: -38px;
       @include mobile() {
-        right: 0;
-        bottom: 0;
-        left: 10px;
-        width: 50px;
+        position: static;
+        // right: 0;
+        // bottom: 0;
+        // left: 270px;
+        // top: 20px;
+        // width: 50px;
       }
     }
   }
