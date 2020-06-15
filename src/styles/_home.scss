@@ -1,7 +1,7 @@
 $mobile: 300px;
 // (min-width: 300px) and (max-width: 800px)
 $ipad: 768px;
-$bigIpad: 1056px;
+$bigIpad: 1024px;
 @mixin mobile {
   @media (min-width: #{$mobile})  and (max-width : $ipad) {
     @content;
@@ -66,26 +66,28 @@ $bigIpad: 1056px;
     height: auto;
     display: block;
     transform-origin: center;
-    z-index: 99;
+    z-index: 100;
     @include mobile() {
       margin-top: 10px;
-      // margin-left: 10px;
+      margin-left: 10px;
     }
+    // @include big-ipad() {
+    //   background-color: rgb(0, 255, 234);
+    // }
     form {
-      // outline: 2px solid purple;
-      // margin: 25px auto;
       padding: 5px 122px 2px;
       width: 65%;
       margin-left: 65px;
-      // display: block;
+
       @include mobile() {
+        position: absolute;
         padding: 2px 15px;
         width: 75%;
         display: block !important;
-        border: 2px solid red;
+        border: 2px solid rgba(225, 0, 255, 0.575);
         z-index: 99;
-        // position: absolute;
-        margin: 100px auto;
+        margin: 10px;
+        margin-top: 10px;
       }
       @include big-ipad() {
         // margin: 20px;
@@ -103,6 +105,7 @@ $bigIpad: 1056px;
           margin-top: 5px;
           font-size: 0.8rem;
           // margin-left: 5px;
+          padding: 0;
           border: 2px solid red;
         }
       }
@@ -119,7 +122,7 @@ $bigIpad: 1056px;
         font-size: 1rem;
         @include mobile() {
           margin-top: 10px;
-          width: 60%;
+          width: 90%;
         }
       }
       .fas {

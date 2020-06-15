@@ -4,8 +4,11 @@ import Card from "../Card/index";
 const URL = "http://makeup-api.herokuapp.com/api/v1/products.json";
 const Homepage = () => {
   const [products, setProducts] = useState(null);
-  const [brand, setBrand] = useState("");
-  const [productType, setProductType] = useState("");
+  const [filter, setFilter] = useState({
+    brand: "",
+    productType: "",
+  });
+  // const [productType, setProductType] = useState("");
   const [filterToggle, setFilterToggle] = useState(false);
   let makeUp;
   useEffect(() => {
@@ -27,21 +30,24 @@ const Homepage = () => {
   };
 
   const handleChange = (e) => {
-    setBrand(e.target.value);
+    setFilter({
+      ...filter,
+      [e.target.name]: e.target.value,
+    });
     // console.log(brand);
   };
-  const onTypeChange = (e) => {
-    setProductType(e.target.value);
-    // console.log(productType);
-  };
+  // const onTypeChange = (e) => {
+  //   setProductType(e.target.value);
+  //   // console.log(productType);
+  // };
 
   let brandData;
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-    if (brand.length > 0 && productType.length === 0) {
+    if (filter.brand.length > 0 && filter.productType.length === 0) {
       try {
         brandData = await axios.get(
-          `http://makeup-api.herokuapp.com/api/v1/products.json?brand=${brand}`
+          `http://makeup-api.herokuapp.com/api/v1/products.json?brand=${filter.brand}`
         );
         if (brandData.data) {
           setProducts(brandData.data);
@@ -53,10 +59,10 @@ const Homepage = () => {
       }
     }
 
-    if (brand.length > 0 && productType.length > 0) {
+    if (filter.brand.length > 0 && filter.productType.length > 0) {
       try {
         brandData = await axios.get(
-          `http://makeup-api.herokuapp.com/api/v1/products.json?brand=${brand}&product_type=${productType}`
+          `http://makeup-api.herokuapp.com/api/v1/products.json?brand=${filter.brand}&product_type=${filter.productType}`
         );
         if (brandData.data) {
           setProducts(brandData.data);
@@ -66,8 +72,10 @@ const Homepage = () => {
         console.log(error);
       }
     }
-    setBrand("");
-    setProductType("");
+    setFilter({
+      brand: "",
+      productType: "",
+    });
   };
 
   const resetFilter = () => {
@@ -84,9 +92,19 @@ const Homepage = () => {
         <div className={`hide ${filterToggle ? " filter-item" : "hide"}`}>
           <form onSubmit={handleFormSubmit}>
             <label>Brand</label>
-            <input type="text" value={brand} onChange={handleChange} />
+            <input
+              type="text"
+              value={filter.brand}
+              onChange={handleChange}
+              name="brand"
+            />
             <label>Product Type</label>
-            <input type="text" value={productType} onChange={onTypeChange} />
+            <input
+              type="text"
+              value={filter.productType}
+              onChange={handleChange}
+              name="productType"
+            />
             <button>
               <i class="fas fa-search"></i>
             </button>
