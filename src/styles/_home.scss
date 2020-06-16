@@ -66,6 +66,7 @@ $bigIpad: 1024px;
     margin-left: 55px;
     height: auto;
     display: block;
+    
     transform-origin: center;
     z-index: 100;
     @include mobile() {
@@ -123,41 +124,59 @@ $bigIpad: 1024px;
         letter-spacing: 1px;
         font-family: "Roboto Condensed", sans-serif;
         font-size: 1rem;
+        transition: all 0.5s ease-in-out;
+        border-radius:4px;
+        border: 1px solid #ADADAD;
         @include mobile() {
           margin-top: 10px;
           width: 90%;
         }
       }
+      input[type="text"]:focus{
+        background-color: #E5C1CD;
+        border: 1px solid #E5C1CD;
+      }
       .btn {
-        background-color: #e5c1cd;
-         border: 1px solid #c9bbc8;
-          border-radius: 100%;
+        background-color: #D6D6D6;
+        border: 1px solid #c9bbc8;
+        // border-radius: 100%;
+        border-radius:45px;
+        text-align:center;
+        outline: 0;
+        border: none;
+        height:35px;
+        transition: 0.05ms all ease-in-out;
+        margin-left: 4px;
         .fas {
-          margin-left: 10px;
+        
           padding: 4px 14px;
-          border-radius: 50%;
+          // border-radius: 50%;
           letter-spacing: 1px;
-          // background-color: #e5c1cd;
-          outline: 0;
           color: #000000 !important;
-          // border: 1px solid #c9bbc8;
+          ;
           font-size: 1rem;
           cursor: pointer;
-          transition: 0.05ms all ease-in-out;
-          @include mobile() {
+         @include mobile() {
           }
         }
-        .fas:hover {
-          transform: scale(1.1);
-          transform-origin: center;
-        }
+       
       }
+        .btn:hover {
+          // transform: scale(1.1);
+        transform-origin: center;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+        background-color:#E5C1CD;
+        }
     }
     .reset-filter {
-      border: 2px solid pink;
+      border: 1px solid #D6D6D6;
       position: absolute;
-      right: 250px;
+      right: 220px;
       bottom: -38px;
+      border-radius:4px;
+      background-color:#D6D6D6;
+      padding: 4px 8px;
       @include mobile() {
         position: absolute;
         right: 0;
@@ -166,6 +185,13 @@ $bigIpad: 1024px;
         z-index: 1;
         top: 10px;
         // width: 50px;
+      }
+      .btn{
+        background-color:transparent;
+        border:none;
+        outline:0;
+        letter-spacing:1px
+        // font-size:
       }
     }
   }
