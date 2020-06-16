@@ -66,7 +66,7 @@ $bigIpad: 1024px;
     margin-left: 55px;
     height: auto;
     display: block;
-    
+
     transform-origin: center;
     z-index: 100;
     @include mobile() {
@@ -84,9 +84,9 @@ $bigIpad: 1024px;
       @include mobile() {
         position: absolute;
         padding: 2px 15px;
-        width: 75%;
+        width: 85%;
         display: block !important;
-        border: 2px solid rgba(225, 0, 255, 0.575);
+        // border: 2px solid rgba(225, 0, 255, 0.575);
         z-index: 99;
         // margin: 10px;
         top: 34px;
@@ -109,7 +109,7 @@ $bigIpad: 1024px;
           font-size: 0.8rem;
           margin-left: 2px;
           padding: 0;
-          border: 2px solid red;
+
           text-align: left;
         }
       }
@@ -125,72 +125,78 @@ $bigIpad: 1024px;
         font-family: "Roboto Condensed", sans-serif;
         font-size: 1rem;
         transition: all 0.5s ease-in-out;
-        border-radius:4px;
-        border: 1px solid #ADADAD;
+        border-radius: 4px;
+        border: 1px solid #adadad;
         @include mobile() {
           margin-top: 10px;
-          width: 90%;
+          width: 60px;
         }
       }
-      input[type="text"]:focus{
-        background-color: #E5C1CD;
-        border: 1px solid #E5C1CD;
+      input[type="text"]:focus {
+        background-color: #e5c1cd;
+        border: 1px solid #e5c1cd !important;
       }
       .btn {
-        background-color: #D6D6D6;
+        background-color: #d6d6d6;
         border: 1px solid #c9bbc8;
         // border-radius: 100%;
-        border-radius:45px;
-        text-align:center;
+        border-radius: 45px;
+        text-align: center;
         outline: 0;
         border: none;
-        height:35px;
+        height: 35px;
         transition: 0.05ms all ease-in-out;
         margin-left: 4px;
+        @include mobile() {
+          height: 40px;
+        }
         .fas {
-        
           padding: 4px 14px;
           // border-radius: 50%;
           letter-spacing: 1px;
           color: #000000 !important;
-          ;
           font-size: 1rem;
           cursor: pointer;
-         @include mobile() {
+          @include mobile() {
+            color: #000000 !important;
           }
         }
-       
       }
-        .btn:hover {
-          // transform: scale(1.1);
+      .btn:hover {
+        // transform: scale(1.1);
         transform-origin: center;
         border-bottom-right-radius: 0;
         border-bottom-left-radius: 0;
-        background-color:#E5C1CD;
-        }
+        background-color: #e5c1cd;
+      }
     }
     .reset-filter {
-      border: 1px solid #D6D6D6;
+      border: 1px solid #d6d6d6;
       position: absolute;
       right: 220px;
       bottom: -38px;
-      border-radius:4px;
-      background-color:#D6D6D6;
+      border-radius: 4px;
+      background-color: #d6d6d6;
       padding: 4px 8px;
+      width: 20px;
       @include mobile() {
         position: absolute;
-        right: 0;
-        bottom: 0;
-        left: -80vw;
+        width: 22px;
+        height: 20px;
+        right: -2px;
+        // bottom: 0;
+        // left: 0;
         z-index: 1;
-        top: 10px;
-        // width: 50px;
+        top: 47px;
       }
-      .btn{
-        background-color:transparent;
-        border:none;
-        outline:0;
-        letter-spacing:1px
+      @include big-ipad() {
+        // top: 42px;
+      }
+      .btn {
+        background-color: transparent;
+        border: none;
+        outline: 0;
+        letter-spacing: 1px;
         // font-size:
       }
     }

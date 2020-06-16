@@ -26,7 +26,6 @@ const Homepage = () => {
 
   const handleFilter = () => {
     setFilterToggle(!filterToggle);
-   
   };
 
   const handleChange = (e) => {
@@ -79,14 +78,12 @@ const Homepage = () => {
   };
 
   const resetFilter = async () => {
-  try{
-    const reset = await axios.get(URL)
-    if(reset.data)setProducts (reset.data)
-    
-     }
-     catch(error){
-       console.log(error)
-     }
+    try {
+      const reset = await axios.get(URL);
+      if (reset.data) setProducts(reset.data);
+    } catch (error) {
+      console.log(error);
+    }
   };
   return (
     <div className="home">
@@ -97,14 +94,14 @@ const Homepage = () => {
         </div>
         <div className={`hide ${filterToggle ? " filter-item" : "hide"}`}>
           <form onSubmit={handleFormSubmit}>
-            <label>Brand</label>
+            <label>Brand:</label>
             <input
               type="text"
               value={filter.brand}
               onChange={handleChange}
               name="brand"
             />
-            <label>Product Type</label>
+            <label>Product Type:</label>
             <input
               type="text"
               value={filter.productType}
@@ -117,7 +114,7 @@ const Homepage = () => {
           </form>
           <div className="reset-filter">
             <button className="btn" onClick={resetFilter}>
-              All Products
+              All
             </button>
           </div>
         </div>
