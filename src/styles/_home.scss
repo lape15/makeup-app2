@@ -33,7 +33,8 @@ $bigIpad: 1024px;
   display: block;
   cursor: pointer;
   @include mobile() {
-    height: 50px;
+    height: 100px;
+    text-align: center;
   }
   .extra {
     height: 150px;
@@ -86,8 +87,9 @@ $bigIpad: 1024px;
         display: block !important;
         border: 2px solid rgba(225, 0, 255, 0.575);
         z-index: 99;
-        margin: 10px;
-        margin-top: 10px;
+        // margin: 10px;
+        top: 34px;
+        right: 9vw;
       }
       @include big-ipad() {
         // margin: 20px;
@@ -101,12 +103,13 @@ $bigIpad: 1024px;
         font-family: "Roboto Condensed", sans-serif;
         margin-left: 25px;
         @include mobile() {
-          display: block !important;
+          display: inline-block !important;
           margin-top: 5px;
           font-size: 0.8rem;
-          // margin-left: 5px;
+          margin-left: 2px;
           padding: 0;
           border: 2px solid red;
+          text-align: left;
         }
       }
 
@@ -125,24 +128,29 @@ $bigIpad: 1024px;
           width: 90%;
         }
       }
-      .fas {
-        margin-left: 10px;
-        padding: 4px 14px;
-        border-radius: 50%;
-        letter-spacing: 1px;
+      .btn {
         background-color: #e5c1cd;
-        outline: 0;
-        color: #000000;
-        border: 1px solid #c9bbc8;
-        font-size: 1rem;
-        cursor: pointer;
-        transition: 0.05ms all ease-in-out;
-        @include mobile() {
+         border: 1px solid #c9bbc8;
+          border-radius: 100%;
+        .fas {
+          margin-left: 10px;
+          padding: 4px 14px;
+          border-radius: 50%;
+          letter-spacing: 1px;
+          // background-color: #e5c1cd;
+          outline: 0;
+          color: #000000 !important;
+          // border: 1px solid #c9bbc8;
+          font-size: 1rem;
+          cursor: pointer;
+          transition: 0.05ms all ease-in-out;
+          @include mobile() {
+          }
         }
-      }
-      .fas:hover {
-        transform: scale(1.1);
-        transform-origin: center;
+        .fas:hover {
+          transform: scale(1.1);
+          transform-origin: center;
+        }
       }
     }
     .reset-filter {
@@ -151,11 +159,12 @@ $bigIpad: 1024px;
       right: 250px;
       bottom: -38px;
       @include mobile() {
-        position: static;
-        // right: 0;
-        // bottom: 0;
-        // left: 270px;
-        // top: 20px;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: -80vw;
+        z-index: 1;
+        top: 10px;
         // width: 50px;
       }
     }

@@ -105,7 +105,7 @@ const Homepage = () => {
               onChange={handleChange}
               name="productType"
             />
-            <button>
+            <button className="btn">
               <i class="fas fa-search"></i>
             </button>
           </form>
