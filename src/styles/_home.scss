@@ -30,6 +30,7 @@ $bigIpad: 1024px;
   height: 50px;
   padding: 10px 15px;
   display: block;
+
   cursor: pointer;
   @include mobile() {
     height: 100px;
@@ -59,7 +60,7 @@ $bigIpad: 1024px;
     display: none;
   }
   .filter-item {
-    margin-top: 60px;
+    margin-top: 10px;
     max-width: 80%;
     margin-left: 55px;
     height: auto;
@@ -167,7 +168,7 @@ $bigIpad: 1024px;
       border: 1px solid #d6d6d6;
       position: absolute;
       right: 220px;
-      bottom: -38px;
+      bottom: 10px;
       border-radius: 4px;
       background-color: #d6d6d6;
       padding: 4px 8px;
