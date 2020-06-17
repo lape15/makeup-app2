@@ -8,7 +8,7 @@ const URL = "http://makeup-api.herokuapp.com/api/v1/products.json";
 const Homepage = () => {
   const [products, setProducts] = useState(null);
   const [filter, setFilter] = useState({
-    brand: "",
+    brand: "colourpop",
     productType: "",
   });
 
