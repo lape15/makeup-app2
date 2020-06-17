@@ -24,7 +24,6 @@ $bigIpad: 1024px;
 }
 
 .filter {
-  // border: 2px solid red;
   width: calc(100% - 50px);
   margin: 0 auto;
   position: relative;
@@ -60,7 +59,6 @@ $bigIpad: 1024px;
     display: none;
   }
   .filter-item {
-    // border: 2px solid green;
     margin-top: 60px;
     max-width: 80%;
     margin-left: 55px;
@@ -73,9 +71,7 @@ $bigIpad: 1024px;
       margin-top: 10px;
       margin-left: 10px;
     }
-    // @include big-ipad() {
-    //   background-color: rgb(0, 255, 234);
-    // }
+
     form {
       padding: 5px 122px 2px;
       width: 65%;
@@ -86,15 +82,13 @@ $bigIpad: 1024px;
         padding: 2px 15px;
         width: 85%;
         display: block !important;
-        // border: 2px solid rgba(225, 0, 255, 0.575);
+
         z-index: 99;
-        // margin: 10px;
+
         top: 34px;
         right: 9vw;
       }
-      @include big-ipad() {
-        // margin: 20px;
-      }
+
       label {
         font-size: 1rem;
         font-weight: 600;
@@ -117,7 +111,7 @@ $bigIpad: 1024px;
       input[type="text"] {
         display: inline-block;
         margin: 5px;
-        // margin-left: 10px;
+
         text-align: center;
         height: 20px;
         padding: 2px;
@@ -139,7 +133,7 @@ $bigIpad: 1024px;
       .btn {
         background-color: #d6d6d6;
         border: 1px solid #c9bbc8;
-        // border-radius: 100%;
+
         border-radius: 45px;
         text-align: center;
         outline: 0;
@@ -152,7 +146,7 @@ $bigIpad: 1024px;
         }
         .fas {
           padding: 4px 14px;
-          // border-radius: 50%;
+
           letter-spacing: 1px;
           color: #000000 !important;
           font-size: 1rem;
@@ -163,7 +157,6 @@ $bigIpad: 1024px;
         }
       }
       .btn:hover {
-        // transform: scale(1.1);
         transform-origin: center;
         border-bottom-right-radius: 0;
         border-bottom-left-radius: 0;
@@ -184,20 +177,16 @@ $bigIpad: 1024px;
         width: 22px;
         height: 20px;
         right: -2px;
-        // bottom: 0;
-        // left: 0;
+
         z-index: 1;
         top: 47px;
       }
-      @include big-ipad() {
-        // top: 42px;
-      }
+
       .btn {
         background-color: transparent;
         border: none;
         outline: 0;
         letter-spacing: 1px;
-        // font-size:
       }
     }
   }

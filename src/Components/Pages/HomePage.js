@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Card from "../Card/index";
+import Loading from "../Loader/index";
 const URL = "http://makeup-api.herokuapp.com/api/v1/products.json";
 const Homepage = () => {
   const [products, setProducts] = useState(null);
@@ -120,7 +121,7 @@ const Homepage = () => {
         </div>
       </div>
       {!products ? (
-        <p>Loading for shit </p>
+        <Loading />
       ) : products.length === 0 ? (
         <p>Item not available</p>
       ) : (
