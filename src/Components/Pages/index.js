@@ -14,21 +14,29 @@ const Homepage = () => {
 
   const [filterToggle, setFilterToggle] = useState(false);
   const storedProduct = useRef();
+  const fetchApi = (url) => {
+    axios
+      .get(url)
+      .then((response) => {
+        localStorage.setItem("products", JSON.stringify(response.data));
+        setProducts(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   useEffect(() => {
-    let makeUp =
-      products === null
-        ? setProducts(JSON.parse(localStorage.getItem("products")))
-        : axios
-            .get(URL)
-            .then((response) => {
-              localStorage.setItem("products", JSON.stringify(response.data));
-            })
-            .catch((error) => {
-              console.log(error);
-            });
-    storedProduct.current = makeUp;
-  }, []);
+    if (products === null) {
+      let makeUp = setProducts(JSON.parse(localStorage.getItem("products")));
+      console.log(makeUp);
+      if (makeUp === null || makeUp === undefined) {
+        fetchApi(URL);
+      }
+
+      storedProduct.current = makeUp;
+    }
+  }, [products]);
 
   const handleFilter = () => {
     setFilterToggle(!filterToggle);
