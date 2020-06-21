@@ -72,8 +72,8 @@ $bigIpad: 1024px;
 
     form {
       padding: 5px 122px 2px;
-      width: 65%;
-      margin-left: 65px;
+      width: 80%;
+      margin-left: 25px;
 
       @include mobile() {
         position: absolute;
@@ -94,7 +94,7 @@ $bigIpad: 1024px;
         padding: 2px;
         letter-spacing: 1px;
         font-family: "Roboto Condensed", sans-serif;
-        margin-left: 25px;
+        margin-left: 5px;
         @include mobile() {
           display: inline-block !important;
           margin-top: 5px;
@@ -128,36 +128,18 @@ $bigIpad: 1024px;
         background-color: #e5c1cd;
         border: 1px solid #e5c1cd !important;
       }
-      select::-webkit-scrollbar {
-        width: 5px;
-        background-color: #e6faff;
-        border-radius: 6px;
-      }
 
-      select::-webkit-scrollbar-thumb {
-        background-color: #00ccff;
-        border-radius: 6px;
-      }
-      select::-moz-scrollbar {
-        width: 5px;
-        background-color: #e6faff;
-        border-radius: 6px;
-      }
-      select::-moz-scrollbar-thumb {
-        background-color: #00ccff;
-        border-radius: 6px;
-      }
       .btn {
         background-color: #d6d6d6;
         border: 1px solid #c9bbc8;
-
-        border-radius: 45px;
+        border-radius: 50%;
+        width: fit-content;
         text-align: center;
         outline: 0;
         border: none;
         height: 35px;
         transition: 0.05ms all ease-in-out;
-        margin-left: 4px;
+        margin-left: -4px;
         @include mobile() {
           height: 40px;
         }

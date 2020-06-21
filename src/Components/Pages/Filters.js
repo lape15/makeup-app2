@@ -1,5 +1,5 @@
 import React from "react";
-import { brands, product_type } from "./fitlerType";
+import { brands, product_type, categories } from "./fitlerType";
 
 const Filters = ({
   filterToggle,
@@ -19,12 +19,6 @@ const Filters = ({
         <form onSubmit={handleFormSubmit}>
           <label>
             Brand:
-            {/*   <input
-            type="text"
-            value={filter.brand}
-            onChange={handleChange}
-            name="brand"
-       /> */}
             <select
               value={filter.brand}
               name="brand"
@@ -52,6 +46,23 @@ const Filters = ({
                 return (
                   <option value={productTypeItem} key={index}>
                     {productTypeItem}
+                  </option>
+                );
+              })}
+            </select>
+          </label>
+          <label>
+            Category:
+            <select
+              value={filter.category}
+              name="category"
+              onChange={handleChange}
+              onBlur={handleChange}
+            >
+              {categories.map((category, index) => {
+                return (
+                  <option value={category} key={index}>
+                    {category}
                   </option>
                 );
               })}

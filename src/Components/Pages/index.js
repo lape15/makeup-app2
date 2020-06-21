@@ -8,8 +8,9 @@ const URL = "http://makeup-api.herokuapp.com/api/v1/products.json";
 const Homepage = () => {
   const [products, setProducts] = useState(null);
   const [filter, setFilter] = useState({
-    brand: "colourpop",
+    brand: "",
     productType: "",
+    category: "",
   });
 
   const [filterToggle, setFilterToggle] = useState(false);
@@ -77,10 +78,27 @@ const Homepage = () => {
         console.log(error);
       }
     }
-    setFilter({
-      brand: "",
-      productType: "",
-    });
+
+    if (
+      filter.brand.length === 0 &&
+      filter.productType.length > 0 &&
+      filter.category.length > 0
+    ) {
+      try {
+        brandData = await axios.get(
+          `http://makeup-api.herokuapp.com/api/v1/products.json?product_category=${filter.category}&product_type=${filter.productType}`
+        );
+        if (brandData.data) {
+          setProducts(brandData.data);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    // setFilter({
+    //   brand: "",
+    //   productType: "",
+    // });
   };
 
   const resetFilter = async () => {
