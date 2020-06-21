@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import Products from "./Products";
 import Filters from "./Filters";
@@ -13,19 +13,22 @@ const Homepage = () => {
   });
 
   const [filterToggle, setFilterToggle] = useState(false);
-  let makeUp;
-  useEffect(() => {
-    axios
-      .get(URL)
-      .then((response) => setProducts(response.data))
-      .catch((error) => {
-        console.log(error);
-      });
-  }, [setProducts]);
+  const storedProduct = useRef();
 
-  if (products) {
-    makeUp = products;
-  }
+  useEffect(() => {
+    let makeUp =
+      products === null
+        ? setProducts(JSON.parse(localStorage.getItem("products")))
+        : axios
+            .get(URL)
+            .then((response) => {
+              localStorage.setItem("products", JSON.stringify(response.data));
+            })
+            .catch((error) => {
+              console.log(error);
+            });
+    storedProduct.current = makeUp;
+  }, []);
 
   const handleFilter = () => {
     setFilterToggle(!filterToggle);
@@ -83,20 +86,22 @@ const Homepage = () => {
 
   return (
     <div className="home">
-      <Filters
-        filterToggle={filterToggle}
-        handleFilter={handleFilter}
-        handleFormSubmit={handleFormSubmit}
-        filter={filter}
-        handleChange={handleChange}
-        resetFilter={resetFilter}
-      />
       {!products ? (
         <Loading />
       ) : products.length === 0 ? (
         <p>Item not available</p>
       ) : (
-        <Products list={makeUp} />
+        <>
+          <Filters
+            filterToggle={filterToggle}
+            handleFilter={handleFilter}
+            handleFormSubmit={handleFormSubmit}
+            filter={filter}
+            handleChange={handleChange}
+            resetFilter={resetFilter}
+          />
+          <Products list={products} />
+        </>
       )}
     </div>
   );
