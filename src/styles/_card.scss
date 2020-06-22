@@ -32,7 +32,6 @@ $ipad: 768px;
     .card-details {
       max-width: 300px;
       max-height: 180px;
-
       display: block;
       padding: 15px 0;
       position: relative;
@@ -67,6 +66,61 @@ $ipad: 768px;
       .far:hover {
         color: red;
       }
+      .details {
+        display: block;
+        margin-left: 7.5rem;
+        margin-top: 5px;
+        border-radius: 4px;
+        outline: 0;
+        border: none;
+        padding: 5px;
+        letter-spacing: 1px;
+        background-color: #e5c1cd;
+        cursor: pointer;
+        transition: all 0.05 ease-in-out;
+        border-bottom-left-radius: 2px;
+        border-top-right-radius: 2px;
+      }
+      .details:hover {
+        background-color: #a84450;
+        color: #fff;
+      }
+      div.hide {
+        display: none;
+      }
+      div.show {
+        position: absolute;
+        border: 0.1px solid #fff;
+        width: 80%;
+        max-height: fit-content;
+        bottom: 190px;
+        background-color: #ffffff;
+        box-shadow: 0 5px 25px -10px rgba(0, 0, 0, 0.25);
+        left: 28px;
+        z-index: 99;
+        border-radius: 2px;
+        .desc {
+          padding: 4px;
+          margin: 5px;
+          text-align: center;
+
+          // border: 0.5px solid #999;
+          .value {
+            padding: 2px;
+            letter-spacing: 2px;
+            font-family: "Roboto Condensed", sans-serif;
+            font-size: 12px;
+          }
+          span {
+            padding: 2px;
+            letter-spacing: 2px;
+            font-family: "Roboto Condensed", sans-serif;
+            font-size: 12px;
+
+            color: #a84450;
+          }
+        }
+      }
     }
   }
 }
@@ -77,4 +131,11 @@ $ipad: 768px;
 .a {
   font-weight: 800;
   font-size: 12px;
+}
+.pointer {
+  cursor: pointer;
+  text-decoration: rgba(0, 0, 0, 0.25) underline;
+}
+.pointer:hover {
+  color: #b5243d;
 }

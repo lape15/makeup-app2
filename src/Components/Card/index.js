@@ -1,6 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Card = ({ cardItem }) => {
+  const [viewDetails, setViewDetails] = useState(false);
+  const handleViewDetails = () => {
+    setViewDetails(!viewDetails);
+  };
+  console.log(cardItem);
   return (
     <div className="card-item" key={cardItem.id}>
       <img
@@ -19,6 +24,17 @@ const Card = ({ cardItem }) => {
           </div>
         </div>
         <i className="far fa-heart"></i>
+        <button className="details" onClick={handleViewDetails}>
+          Details
+        </button>
+        <div className={` ${viewDetails ? "show" : "hide"} `}>
+          <div className="desc">
+            <span>Details</span>
+            <div className="value">{cardItem.description}</div>
+            <span>website</span>
+            <div className="value pointer">{cardItem.website_link}</div>
+          </div>
+        </div>
       </div>
     </div>
   );

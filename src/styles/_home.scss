@@ -132,14 +132,14 @@ $bigIpad: 1024px;
       .btn {
         background-color: #d6d6d6;
         border: 1px solid #c9bbc8;
-        border-radius: 50%;
+        border-radius: 80px;
         width: fit-content;
         text-align: center;
         outline: 0;
         border: none;
-        height: 35px;
+        height: 25px;
         transition: 0.05ms all ease-in-out;
-        margin-left: -4px;
+        margin-left: 2px;
         @include mobile() {
           height: 40px;
         }
@@ -186,6 +186,7 @@ $bigIpad: 1024px;
         border: none;
         outline: 0;
         letter-spacing: 1px;
+        cursor: pointer;
       }
     }
   }
