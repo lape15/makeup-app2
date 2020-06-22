@@ -1,3 +1,16 @@
+$mobile: 300px;
+// (min-width: 300px) and (max-width: 800px)
+$ipad: 768px;
+@mixin mobile {
+  @media (min-width: #{$mobile})  and (max-width : $ipad) {
+    @content;
+  }
+}
+@mixin ipad {
+  @media (min-width: #{$ipad}) {
+    @content;
+  }
+}
 nav {
   display: flex;
   //   border: 2px solid red;
@@ -5,13 +18,17 @@ nav {
   justify-content: space-between;
   padding: 10px 25px;
   ul.left {
+    padding: 0;
     li {
       list-style: none;
-      font-family: "Amatic SC", cursive;
+      font-family: "Amatic SC", sans-serif;
       letter-spacing: 1px;
-      font-size: 3rem;
+      font-size: 2rem;
       font-weight: 900;
       flex-basis: 45%;
+      @include mobile() {
+        font-size: 1.5rem;
+      }
     }
   }
   ul.right {
@@ -22,9 +39,8 @@ nav {
     li {
       list-style: none;
       .profile-img {
-        // border: 2px solid black;
-        width: 60px;
-        height: 50px;
+        width: 40px;
+        height: 40px;
         border-radius: 100%;
       }
     }

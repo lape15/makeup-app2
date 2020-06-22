@@ -1,0 +1,17 @@
+.box {
+  padding: 5px 10px;
+  //   background: url(../assets/shot1.jpg) no-repeat center;
+  //   background-size: 100% auto;
+  .box-item {
+    text-align: center;
+    h2 {
+      font-size: 6rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+    }
+    span {
+      letter-spacing: 1px;
+      margin-top: -15px;
+    }
+  }
+}
