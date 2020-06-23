@@ -27,7 +27,7 @@ const Card = ({ cardItem }) => {
         <button className="details" onClick={handleViewDetails}>
           Details
         </button>
-        <div className={` ${viewDetails ? "show" : "hide"} `}>
+        <div className={`div  ${viewDetails ? "show" : "hide"} `}>
           <div className="desc">
             <span>Description</span>
             <div className="value">{cardItem.description}</div>
