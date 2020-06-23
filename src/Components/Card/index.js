@@ -5,7 +5,7 @@ const Card = ({ cardItem }) => {
   const handleViewDetails = () => {
     setViewDetails(!viewDetails);
   };
-  console.log(cardItem);
+
   return (
     <div className="card-item" key={cardItem.id}>
       <img
@@ -29,7 +29,7 @@ const Card = ({ cardItem }) => {
         </button>
         <div className={` ${viewDetails ? "show" : "hide"} `}>
           <div className="desc">
-            <span>Details</span>
+            <span>Description</span>
             <div className="value">{cardItem.description}</div>
             <span>website</span>
             <div className="value pointer">{cardItem.website_link}</div>
