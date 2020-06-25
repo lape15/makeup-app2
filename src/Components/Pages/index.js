@@ -21,12 +21,11 @@ const Homepage = () => {
   const [filterToggle, setFilterToggle] = useState(false);
   const storedProduct = useRef();
   const fetchApi = (url) => {
-    setLoading(true);
     axios
       .get(url)
       .then((response) => {
         localStorage.setItem("products", JSON.stringify(response.data));
-        setLoading(false);
+
         setProducts(response.data);
       })
       .catch((error) => {
@@ -37,6 +36,7 @@ const Homepage = () => {
   useEffect(() => {
     if (products === null) {
       let makeUp = setProducts(JSON.parse(localStorage.getItem("products")));
+
       if (makeUp === null || makeUp === undefined) {
         fetchApi(URL);
       }
@@ -46,6 +46,7 @@ const Homepage = () => {
 
   const handleFilter = () => {
     setFilterToggle(!filterToggle);
+    console.log(filterToggle);
   };
 
   const handleChange = (e) => {
@@ -59,7 +60,6 @@ const Homepage = () => {
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     if (filter.brand.length > 0 && filter.productType.length === 0) {
-      setLoading(true);
       try {
         brandData = await axios.get(
           `http://makeup-api.herokuapp.com/api/v1/products.json?brand=${filter.brand}`
@@ -67,7 +67,6 @@ const Homepage = () => {
 
         if (brandData.data) {
           setProducts(brandData.data);
-          setLoading(false);
         }
       } catch (error) {
         console.log(error);
@@ -75,7 +74,6 @@ const Homepage = () => {
     }
 
     if (filter.brand.length > 0 && filter.productType.length > 0) {
-      setLoading(true);
       try {
         brandData = await axios.get(
           `http://makeup-api.herokuapp.com/api/v1/products.json?brand=${filter.brand}&product_type=${filter.productType}`
@@ -83,7 +81,6 @@ const Homepage = () => {
 
         if (brandData.data) {
           setProducts(brandData.data);
-          setLoading(false);
         }
       } catch (error) {
         console.log(error);
@@ -95,7 +92,6 @@ const Homepage = () => {
       filter.productType.length > 0 &&
       filter.category.length > 0
     ) {
-      setLoading(true);
       try {
         brandData = await axios.get(
           `http://makeup-api.herokuapp.com/api/v1/products.json?product_category=${filter.category}&product_type=${filter.productType}`
@@ -103,7 +99,6 @@ const Homepage = () => {
 
         if (brandData.data) {
           setProducts(brandData.data);
-          setLoading(false);
         }
       } catch (error) {
         console.log(error);
@@ -138,22 +133,26 @@ const Homepage = () => {
         resetFilter={resetFilter}
       />
 
-      {productData.length === 0 ? (
+      {!products ? (
+        <Loading />
+      ) : products.length === 0 ? (
         <NotAvailable />
       ) : (
-        <Products
-          list={productData}
-          lastCard={indexOfLastCard}
-          firstCard={indexOfFirstCard}
-        />
+        <>
+          <Products
+            list={productData}
+            lastCard={indexOfLastCard}
+            firstCard={indexOfFirstCard}
+          />
+
+          <Pagination
+            cardsPerPage={cardsPerPage}
+            totalCards={productData.length}
+            paginate={handlePagination}
+            currentPage={currentPage}
+          />
+        </>
       )}
-      {loading ? <Loading /> : null}
-      <Pagination
-        cardsPerPage={cardsPerPage}
-        totalCards={productData.length}
-        paginate={handlePagination}
-        currentPage={currentPage}
-      />
     </div>
   );
 };

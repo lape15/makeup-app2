@@ -27,18 +27,16 @@ $bigIpad: 1024px;
   width: calc(100% - 50px);
   margin: 0 auto;
   position: relative;
-  height: 50px;
-  padding: 10px 15px;
+  height: 120px;
+  box-sizing: border-box;
   display: block;
+  overflow: hidden;
 
-  cursor: pointer;
   @include mobile() {
-    height: 100px;
+    height: 220px;
     text-align: center;
   }
-  .extra {
-    height: 150px;
-  }
+
   .filter-btn {
     border: 1px solid #e5c1cd;
     width: max-content;
@@ -49,145 +47,164 @@ $bigIpad: 1024px;
     letter-spacing: 1px;
     color: #e5c1cd;
     transition: all 0.5s ease-in-out;
+    cursor: pointer;
   }
   .filter-btn:hover {
     color: #aa4a54 !important;
   }
   .hide {
-    display: none;
+    top: -200px;
+  }
+  .show {
+    top: 0;
   }
   .filter-item {
     margin-top: 10px;
-    max-width: 80%;
-    margin-left: 55px;
-    height: auto;
-    display: block;
+    width: 95%;
+    margin: 0 auto;
+    height: 200px;
+    transition: all 0.5s;
+    position: absolute;
+    left: 42px;
+    box-sizing: border-box;
 
     transform-origin: center;
     z-index: 100;
     @include mobile() {
+      display: block;
       margin-top: 10px;
-      margin-left: 10px;
+      width: 95%;
+      margin: 0 auto;
+      height: 200px;
+      position: absolute;
+      left: 2px;
+      box-sizing: border-box;
+      height: auto;
     }
 
     form {
-      padding: 5px 122px 2px;
-      width: 80%;
-      margin-left: 25px;
+      padding: 2px;
+      width: 90%;
+      margin-left: 8px;
+      margin-right: 0;
+      float: left;
+      box-sizing: border-box;
 
       @include mobile() {
-        position: absolute;
-        padding: 2px 15px;
+        padding: 2px 5px;
         width: 85%;
         display: block !important;
-
         z-index: 99;
-
-        top: 34px;
-        right: 9vw;
-      }
-
-      label {
-        font-size: 1rem;
-        font-weight: 600;
-        display: inline;
-        padding: 2px;
-        letter-spacing: 1px;
-        font-family: "Roboto Condensed", sans-serif;
-        margin-left: 5px;
-        @include mobile() {
-          display: inline-block !important;
-          margin-top: 5px;
-          font-size: 0.8rem;
-          margin-left: 2px;
-          padding: 0;
-
-          text-align: left;
-        }
-      }
-
-      select {
-        // display: inline-block;
-        margin: 5px;
-
+        height: 200px;
+        border: 2px solid blue;
         text-align: center;
-        // height: 20px;
-        padding: 2px;
-        letter-spacing: 1px;
-        font-family: "Roboto Condensed", sans-serif;
-        font-size: 1rem;
-        transition: all 0.5s ease-in-out;
-        border-radius: 4px;
-        border: 1px solid #adadad;
-        @include mobile() {
-          // margin-top: 10px;
-          // width: 60px;
-        }
       }
-      select:focus {
-        background-color: #e5c1cd;
-        border: 1px solid #e5c1cd !important;
-      }
-
-      .btn {
-        background-color: #d6d6d6;
-        border: 1px solid #c9bbc8;
-        border-radius: 80px;
-        width: fit-content;
-        text-align: center;
-        outline: 0;
-        border: none;
-        height: 25px;
-        transition: 0.05ms all ease-in-out;
+      .w-30 {
+        width: 26%;
+        box-sizing: border-box;
+        display: inline-block !important;
         margin-left: 2px;
         @include mobile() {
-          height: 40px;
+          width: 100%;
         }
-        .fas {
-          padding: 4px 14px;
-
-          letter-spacing: 1px;
-          color: #000000 !important;
+        label {
           font-size: 1rem;
-          cursor: pointer;
+          font-weight: 600;
+          display: inline !important;
+          padding: 2px;
+          letter-spacing: 1px;
+          font-family: "Roboto Condensed", sans-serif;
+          box-sizing: border-box;
+          @include mobile() {
+            display: inline-block !important;
+            margin-top: 5px;
+            font-size: 0.8rem;
+            margin-left: 2px;
+            padding: 0;
+
+            text-align: left;
+          }
+        }
+
+        select {
+          margin: 5px;
+          text-align: center;
+          // height: 20px;
+          padding: 2px;
+          letter-spacing: 1px;
+          font-family: "Roboto Condensed", sans-serif;
+          font-size: 1rem;
+          transition: all 0.5s ease-in-out;
+          border-radius: 4px;
+          border: 1px solid #adadad;
+          @include mobile() {
+            // margin-top: 10px;
+          }
+        }
+        select:focus {
+          background-color: #e5c1cd;
+          border: 1px solid #e5c1cd !important;
+        }
+      }
+      .btn {
+        width: 5%;
+        font-size: 1rem;
+        border: 1px solid #e5c1cd;
+        cursor: pointer;
+        border-radius: 50%;
+        text-align: center;
+        outline: none;
+        height: 25px;
+        transition: 0.05ms all ease-in-out;
+        padding: 5px;
+        .fas {
+          background-color: transparent;
+          text-align: center;
+          color: #000000 !important;
           @include mobile() {
             color: #000000 !important;
           }
+        }
+        @include mobile {
+          width: 12%;
         }
       }
       .btn:hover {
         transform-origin: center;
         border-bottom-right-radius: 0;
         border-bottom-left-radius: 0;
-        background-color: #e5c1cd;
       }
     }
     .reset-filter {
       border: 1px solid #d6d6d6;
-      position: absolute;
-      right: 220px;
-      bottom: 10px;
+      box-sizing: border-box;
+      float: left;
+      margin-top: 5px;
       border-radius: 4px;
       background-color: #d6d6d6;
-      padding: 4px 8px;
-      width: 20px;
+      padding: 4px;
+      width: 6%;
+      transition: background-color 0.5s ease-in-out;
+      text-align: center;
       @include mobile() {
-        position: absolute;
-        width: 22px;
-        height: 20px;
-        right: -2px;
-
+        width: 20%;
         z-index: 1;
-        top: 47px;
+        padding: 5px;
+        top: 0;
       }
-
       .btn {
         background-color: transparent;
         border: none;
-        outline: 0;
+        outline: none;
         letter-spacing: 1px;
         cursor: pointer;
+        @include mobile() {
+          margin-bottom: 4px;
+        }
       }
+    }
+    .reset-filter:hover {
+      background-color: #aa4a54 !important;
     }
   }
 }
