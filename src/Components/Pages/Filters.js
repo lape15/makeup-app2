@@ -12,7 +12,7 @@ const Filters = ({
   console.log(filterToggle);
   return (
     <div className={`filter ${filterToggle ? "filter" : "filter"} `}>
-      <button className="filter-btn" onClick={handleFilter}>
+      <button className="filter-btn" onClick={() => handleFilter()}>
         {" "}
         <i className="fas fa-filter"></i>Filters
       </button>
