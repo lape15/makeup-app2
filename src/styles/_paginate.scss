@@ -5,9 +5,9 @@
   justify-content: center;
   align-items: center;
   border-radius: 4px;
-  a {
+  button {
     box-shadow: 0 5px 25px -10px rgba(0, 0, 0, 0.25);
-    // margin-left: 2px;
+    margin-left: 6px;
     padding: 7px 9px;
     color: black;
     font-size: 0.8rem;
@@ -15,12 +15,15 @@
     border: 1px solid #e5c1cd;
     transition: transform 0.05s ease;
     text-decoration: none;
+    outline: none;
+    cursor: pointer;
+    background-color: #fff;
   }
-  a.active {
+  button.active {
     background-color: #a84450;
     color: #fff;
   }
-  a:hover {
+  button:hover {
     transform: scale(1.1);
   }
 }

@@ -41,13 +41,20 @@ $bigIpad: 1024px;
     border: 1px solid #e5c1cd;
     width: max-content;
     padding: 5px;
-    vertical-align: middle;
-    float: right;
+    // float: right;
+    position: absolute;
+    top: 0;
+    right: 0;
     margin-top: 7px;
     letter-spacing: 1px;
     color: #e5c1cd;
     transition: all 0.5s ease-in-out;
+    outline: none;
     cursor: pointer;
+    background-color: #fff;
+    .fas {
+      // cursor: pointer !important;
+    }
   }
   .filter-btn:hover {
     color: #aa4a54 !important;

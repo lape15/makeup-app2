@@ -1,64 +1,51 @@
 import React from "react";
 
 const Pagination = ({ cardsPerPage, totalCards, paginate, currentPage }) => {
-  const pageNumbers = [];
   const pages = Math.ceil(totalCards / cardsPerPage);
-  for (let i = 1; i <= pages; i++) {
-    pageNumbers.push(i);
-  }
+
   return (
     <div className="paginate">
       {currentPage > 1 ? (
-        <a href="!#" onClick={() => paginate(currentPage - 1)}>
-          Prev
-        </a>
+        <button onClick={() => paginate(currentPage - 1)}>Previous</button>
       ) : (
         ""
       )}
 
       {currentPage - 2 > 1 ? (
         <>
-          <a href="!#" onClick={() => paginate(1)}>
-            1
-          </a>
+          <button onClick={() => paginate(1)}>1</button>
           ...
         </>
       ) : null}
       {currentPage > 1 ? (
-        <a href="!#" onClick={() => paginate(currentPage - 1)}>
+        <button onClick={() => paginate(currentPage - 1)}>
           {currentPage - 1}
-        </a>
+        </button>
       ) : null}
 
-      <a className="active" href="!#">
-        {currentPage}
-      </a>
+      <button className="active">{currentPage}</button>
 
       {currentPage < pages ? (
-        <a href="!#" onClick={() => paginate(currentPage + 1)}>
+        <button href="!#" onClick={() => paginate(currentPage + 1)}>
           {currentPage + 1}
-        </a>
+        </button>
       ) : null}
 
       {currentPage === 1 && pages > 2 ? (
-        <a href="!#" onClick={() => paginate(currentPage + 2)}>
+        <button href="!#" onClick={() => paginate(currentPage + 2)}>
           {currentPage + 2}
-        </a>
+        </button>
       ) : null}
 
       {currentPage + 2 < pages ? (
         <>
           ...
-          <a href="!#" onClick={() => paginate(pages)}>
-            {pages}
-          </a>
+          <button onClick={() => paginate(pages)}>{pages}</button>
         </>
       ) : null}
 
       {currentPage < pages ? (
-        <a href="!#" onClick={() => paginate(currentPage + 1)}>
-          Next
-        </a>
+        <button onClick={() => paginate(currentPage + 1)}>Next</button>
       ) : (
         ""
       )}

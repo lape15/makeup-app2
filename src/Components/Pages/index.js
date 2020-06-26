@@ -14,9 +14,9 @@ const Homepage = () => {
     productType: "",
     category: "",
   });
-  const [loading, setLoading] = useState(false);
+
   const [currentPage, setCurrentPage] = useState(1);
-  const [cardsPerPage] = useState(21);
+  const [cardsPerPage] = useState(20);
   let productData = [];
   const [filterToggle, setFilterToggle] = useState(false);
   const storedProduct = useRef();
@@ -104,10 +104,6 @@ const Homepage = () => {
         console.log(error);
       }
     }
-    // setFilter({
-    //   brand: "",
-    //   productType: "",
-    // });
   };
 
   const indexOfLastCard = currentPage * cardsPerPage;

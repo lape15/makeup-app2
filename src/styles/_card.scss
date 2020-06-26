@@ -10,7 +10,15 @@ $ipad: 768px;
     @content;
   }
 }
-
+@mixin firefox-only {
+  @at-root {
+    @-moz-document url-prefix() {
+      & {
+        @content;
+      }
+    }
+  }
+}
 .card {
   display: flex;
   flex-flow: row wrap;
@@ -103,6 +111,9 @@ $ipad: 768px;
         transition: all 0.5s;
         border-radius: 2px;
         overflow-y: scroll;
+        scrollbar-width: thin;
+        scrollbar-color: #a84450 #e5c1cd;
+        scrollbar-width: thin;
         .desc {
           padding: 4px;
           margin: 5px;
