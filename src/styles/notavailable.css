@@ -1,0 +1,19 @@
+.box {
+  padding: 5px 10px;
+}
+
+.box .box-item {
+  text-align: center;
+}
+
+.box .box-item h2 {
+  font-size: 6rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.box .box-item span {
+  letter-spacing: 1px;
+  margin-top: -15px;
+}
+/*# sourceMappingURL=notavailable.css.map */
