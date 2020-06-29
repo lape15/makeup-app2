@@ -4,7 +4,7 @@ const NotAvailable = () => {
   return (
     <div className="box">
       <div className="box-item">
-        <h2>404</h2>
+        <h2 className="head">404</h2>
         <span>Item unvailable</span>
       </div>
     </div>
