@@ -1,5 +1,5 @@
 $mobile: 300px;
-// (min-width: 300px) and (max-width: 800px)
+
 $ipad: 768px;
 @mixin mobile {
   @media (min-width: #{$mobile})  and (max-width : $ipad) {
@@ -13,7 +13,7 @@ $ipad: 768px;
 }
 nav {
   display: flex;
-  //   border: 2px solid red;
+
   flex-flow: row wrap;
   justify-content: space-between;
   padding: 10px 25px;
@@ -29,19 +29,31 @@ nav {
       @include mobile() {
         font-size: 1.5rem;
       }
+      .link {
+        text-decoration: none;
+        color: #000;
+      }
     }
   }
   ul.right {
-    // border: 2px solid green;
     flex-basis: 45%;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     li {
       list-style: none;
       .profile-img {
         width: 40px;
         height: 40px;
         border-radius: 100%;
+      }
+      .link {
+        text-decoration: none;
+        color: #000;
+        font-size: 2rem;
+        font-weight: 900;
+      }
+      .link:hover {
+        color: #e5c1cd;
       }
     }
   }

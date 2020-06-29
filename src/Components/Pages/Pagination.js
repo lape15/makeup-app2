@@ -26,13 +26,13 @@ const Pagination = ({ cardsPerPage, totalCards, paginate, currentPage }) => {
       <button className="active">{currentPage}</button>
 
       {currentPage < pages ? (
-        <button href="!#" onClick={() => paginate(currentPage + 1)}>
+        <button onClick={() => paginate(currentPage + 1)}>
           {currentPage + 1}
         </button>
       ) : null}
 
       {currentPage === 1 && pages > 2 ? (
-        <button href="!#" onClick={() => paginate(currentPage + 2)}>
+        <button onClick={() => paginate(currentPage + 2)}>
           {currentPage + 2}
         </button>
       ) : null}

@@ -9,7 +9,6 @@ const Filters = ({
   handleChange,
   resetFilter,
 }) => {
-  console.log(filterToggle);
   return (
     <div className={`filter ${filterToggle ? "filter" : "filter"} `}>
       <button className="filter-btn" onClick={() => handleFilter()}>

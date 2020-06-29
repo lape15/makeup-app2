@@ -74,8 +74,13 @@ $ipad: 768px;
       .far {
         text-align: right;
       }
-      .far:hover {
+      .red {
         color: red;
+      }
+      .black {
+        .red {
+          color: #000;
+        }
       }
       .details {
         display: block;
