@@ -6,7 +6,7 @@ import Loading from "../Loader/index";
 import NotAvailable from "./notFound";
 import Pagination from "./Pagination";
 
-const URL = "http://makeup-api.herokuapp.com/api/v1/products.json";
+const URL = "https://makeup-api.herokuapp.com/api/v1/products.json";
 const Homepage = () => {
   const [products, setProducts] = useState(null);
   const [filter, setFilter] = useState({
@@ -62,7 +62,7 @@ const Homepage = () => {
     if (filter.brand.length > 0 && filter.productType.length === 0) {
       try {
         brandData = await axios.get(
-          `http://makeup-api.herokuapp.com/api/v1/products.json?brand=${filter.brand}`
+          `https://makeup-api.herokuapp.com/api/v1/products.json?brand=${filter.brand}`
         );
 
         if (brandData.data) {
@@ -76,7 +76,7 @@ const Homepage = () => {
     if (filter.brand.length > 0 && filter.productType.length > 0) {
       try {
         brandData = await axios.get(
-          `http://makeup-api.herokuapp.com/api/v1/products.json?brand=${filter.brand}&product_type=${filter.productType}`
+          `https://makeup-api.herokuapp.com/api/v1/products.json?brand=${filter.brand}&product_type=${filter.productType}`
         );
 
         if (brandData.data) {
@@ -94,7 +94,7 @@ const Homepage = () => {
     ) {
       try {
         brandData = await axios.get(
-          `http://makeup-api.herokuapp.com/api/v1/products.json?product_category=${filter.category}&product_type=${filter.productType}`
+          `https://makeup-api.herokuapp.com/api/v1/products.json?product_category=${filter.category}&product_type=${filter.productType}`
         );
 
         if (brandData.data) {
