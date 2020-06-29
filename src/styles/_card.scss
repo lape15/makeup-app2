@@ -97,6 +97,9 @@ $ipad: 768px;
         border-bottom-left-radius: 2px;
         border-top-right-radius: 2px;
         visibility: hidden;
+        @include mobile() {
+          visibility: visible;
+        }
       }
       .details:hover {
         background-color: #a84450;
