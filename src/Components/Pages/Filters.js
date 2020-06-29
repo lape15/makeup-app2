@@ -42,7 +42,7 @@ const Filters = ({
             </label>
           </div>
           <div className="w-30">
-            <label>
+            <label className="left">
               Product Type:
               <select
                 value={filter.productType}
@@ -62,7 +62,7 @@ const Filters = ({
           </div>
 
           <div className="w-30">
-            <label>
+            <label className="left">
               Category:
               <select
                 value={filter.category}

@@ -19,6 +19,16 @@ $bigIpad: 1024px;
   }
 }
 
+@mixin firefox-only {
+  @at-root {
+    @-moz-document url-prefix() {
+      & {
+        @content;
+      }
+    }
+  }
+}
+
 .home {
   height: 80vh;
 }
@@ -60,7 +70,7 @@ $bigIpad: 1024px;
     color: #aa4a54 !important;
   }
   .hide {
-    top: -200px;
+    top: -220px;
   }
   .show {
     top: 0;
@@ -90,7 +100,7 @@ $bigIpad: 1024px;
     }
 
     form {
-      padding: 2px;
+      padding: 5px;
       width: 90%;
       margin-left: 8px;
       margin-right: 0;
@@ -102,9 +112,11 @@ $bigIpad: 1024px;
         width: 85%;
         display: block !important;
         z-index: 99;
-        height: 200px;
-        border: 2px solid blue;
+        height: 160px;
+        margin-top: 5px;
         text-align: center;
+        background-color: #e5c1cd;
+        margin-left: 15px;
       }
       .w-30 {
         width: 26%;
@@ -128,11 +140,34 @@ $bigIpad: 1024px;
             font-size: 0.8rem;
             margin-left: 2px;
             padding: 0;
-
             text-align: left;
           }
         }
 
+        @include firefox-only() {
+          label {
+            font-size: 1rem;
+            font-weight: 600;
+            display: inline !important;
+            padding: 2px;
+            letter-spacing: 1px;
+            font-family: "Roboto Condensed", sans-serif;
+            box-sizing: border-box;
+            @include mobile() {
+              display: inline-block !important;
+              margin-top: 5px;
+              font-size: 0.8rem;
+              margin-left: -2px;
+              padding: 0;
+              text-align: left;
+            }
+          }
+        }
+        .left {
+          @include mobile() {
+            margin-left: -36px;
+          }
+        }
         select {
           margin: 5px;
           text-align: center;
@@ -151,6 +186,9 @@ $bigIpad: 1024px;
         select:focus {
           background-color: #e5c1cd;
           border: 1px solid #e5c1cd !important;
+        }
+        @include mobile() {
+          width: 100%;
         }
       }
       .btn {

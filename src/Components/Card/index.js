@@ -14,8 +14,6 @@ const Card = ({ cardItem, type }) => {
     setLiked(!liked);
     cardItem.liked = liked;
     likedCards = JSON.parse(localStorage.getItem("likedItems")) || [];
-    console.log(likedCards);
-    console.log(likedCards);
 
     let index;
     for (let i = 0; i < likedCards.length; i++) {
@@ -26,7 +24,6 @@ const Card = ({ cardItem, type }) => {
     }
     if (index > -1) {
       likedCards.splice(index, 1);
-      console.log("It exists");
     } else {
       likedCards.push(cardItem);
     }
